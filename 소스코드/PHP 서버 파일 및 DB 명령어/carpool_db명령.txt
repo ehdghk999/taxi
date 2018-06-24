@@ -1,0 +1,57 @@
+show variables like 'c%';
+show databases;
+drop database if exists carpooldb;
+create database carpooldb default character set utf8 collate utf8_general_ci;
+use carpooldb;
+create table user_info(
+	id int(11) not null auto_increment,
+	studentID char(20),
+	password char(20),
+	studentEmail char(20),
+
+	primary key(id),
+	index(studentID)
+)ENGINE=InnoDB default character set utf8 collate utf8_general_ci;
+set names euckr;
+describe user_info;
+select * from user_info;
+
+create table board_list(
+	id int(11) not null auto_increment,
+	start_location char(30),
+	end_location char(30),
+	start_time char(20),
+	studentID char(20),
+	write_date char(30),
+
+	primary key(id),
+	index(start_location),
+	FOREIGN KEY(studentID) REFERENCES user_info(studentID) ON DELETE CASCADE ON UPDATE CASCADE
+)ENGINE=InnoDB default character set utf8 collate utf8_general_ci;
+set names euckr;
+describe board_list;
+select * from board_list;
+
+create table reply_list(
+	id int(11) not null auto_increment,
+	post_id int(11),
+	user_id char(20),
+	reply char(50),
+	reply_date char(30),
+
+	primary key(id),
+	index(user_id),
+	FOREIGN KEY(post_id) REFERENCES board_list(id) ON DELETE CASCADE ON UPDATE CASCADE
+)ENGINE=InnoDB default character set utf8 collate utf8_general_ci;
+set names euckr;
+describe reply_list;
+select * from reply_list;
+---------------------------------------------------------------------------------------------------------
+delete from user_info;
+drop table user_info;
+
+delete from board_list;
+drop table board_list;
+
+delete from reply_list;
+drop table reply_list;

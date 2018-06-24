@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:layout_marginLeft="3dp"
+    android:layout_marginRight="3dp"
+    android:layout_marginTop="2dp"
+    android:orientation="horizontal"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/txt_postlist_view_num"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:textColor="#222A35"
+        android:textSize="20dp"
+        android:textAlignment="center"
+        android:gravity="center"
+        android:background="@drawable/border_3"/>
+    <Button
+        android:id="@+id/btn_postlist_view"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="5"
+        android:textSize="20dp"
+        android:textAllCaps="false"
+        android:background="@drawable/button_1"/>
+</LinearLayout>
